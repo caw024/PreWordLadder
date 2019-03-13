@@ -61,9 +61,9 @@ def Process(infile,outfile):
   
   #g is what we will return
   g = open(outfile,'w')
-  for k in dictionary:
-    g.write(k + "," + str( len(dictionary[k])) + "\n" )
-    print(k + "," + str( len(dictionary[k])) )
+  for k in check:
+    if k in dictionary:
+      g.write(k + "," + str( len(dictionary[k])) + "\n" )
   g.close()
 
             
