@@ -17,9 +17,9 @@ def Process(infile,outfile):
   print(length)
   
   #word list
-  #dictall = open('dictall.txt','r')
-  with open('dictall.txt') as h:
-    wordlist = [''.join(line.split('\n')) for line in h]
+  dictall = open('dictall.txt','r')
+  wordlist = dictall.read().split('\n')
+  dictall.close()
   
   mywordlist = []
   
@@ -63,8 +63,9 @@ def Process(infile,outfile):
   g = open(outfile,'w')
   for k in dictionary:
     g.write(k + "," + str( len(dictionary[k])) + "\n" )
+    print(k + "," + str( len(dictionary[k])) )
   g.close()
-    
+
             
 #$ ./fred.py A.txt(words of same length) B.txt
 def main():

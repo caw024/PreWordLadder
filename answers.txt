@@ -4,3 +4,5 @@ bozo,0
 cake,18
 bags,21
 done,22
+nine,13
+tarp,9
