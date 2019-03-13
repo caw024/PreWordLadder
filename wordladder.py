@@ -26,13 +26,16 @@ def Process(infile,outfile):
   
   #checks per letter
   for word in check:
+    print("new word: " + word)
     index = 0
-    if len(word) < 1:
-      break
-    dictionary[word] = []
+    if len(word) > 0:
+      dictionary[word] = []
+    else:
+      index = length
     while index < length:
       j = 97
       #change one letter of m everytime
+      print(index)
       while j < 123:
         m = list(word)
         m[index] = chr(j)
