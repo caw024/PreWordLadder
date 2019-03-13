@@ -6,14 +6,20 @@ def Process(infile,outfile):
   f = open(infile, 'r')
   check = f.read().split('\n')
   f.close()
+
+  p = 0
+  while p < len(check):
+    check[p] = ''.join(check[p].split())
+    p+=1
   
   #length of list
   length = len(check[0])
+  print(length)
   
   #word list
   #dictall = open('dictall.txt','r')
   with open('dictall.txt') as h:
-    wordlist = [line.rstrip('\n') for line in h]
+    wordlist = [''.join(line.split('\n')) for line in h]
   
   mywordlist = []
   
@@ -21,6 +27,7 @@ def Process(infile,outfile):
   for k in wordlist:
     if len(k) == length:
       mywordlist.append(k)
+  #print(k)
       
   dictionary = {}
   
@@ -28,7 +35,7 @@ def Process(infile,outfile):
   for word in check:
     print("new word: " + word)
     index = 0
-    if len(word) > 0:
+    if len(word) == length:
       dictionary[word] = []
     else:
       index = length
@@ -40,6 +47,7 @@ def Process(infile,outfile):
         m = list(word)
         m[index] = chr(j)
         m = "".join(m)
+        #print(m in mywordlist)
         if m in mywordlist:
           if m == word:
             pass
